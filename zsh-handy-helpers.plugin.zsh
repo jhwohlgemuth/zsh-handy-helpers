@@ -10,7 +10,6 @@ clean() {
     rf $1 && take $1 ;
 }
 create_ssh_key() {
-    prevent_root "$0"
     KEY_NAME=${2:-id_rsa}
     echo -n "Generating key pair......"
     ssh-keygen -q -b 4096 -t rsa -N "" -f ~/.ssh/"${KEY_NAME}"
