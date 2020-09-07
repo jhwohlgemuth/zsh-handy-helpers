@@ -1,5 +1,5 @@
-Handy Helpers Plugins
-=====================
+Handy Helpers Plugin
+====================
 > [Aliases](#Aliases) and [helper functions](#Functions) that you can use with [oh-my-zsh](https://ohmyz.sh/)
 
 Installation
