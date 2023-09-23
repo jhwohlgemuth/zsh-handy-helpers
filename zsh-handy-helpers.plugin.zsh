@@ -10,9 +10,10 @@ clean() {
     rf $1 && take $1 ;
 }
 create_ssh_key() {
-    KEY_NAME=${2:-id_rsa}
+    KEY_TYPE=${1:-ed25519}
+    KEY_NAME=${2:-"id_${KEY_TYPE}"}
     echo -n "Generating key pair......"
-    ssh-keygen -q -b 4096 -t rsa -N "" -f ~/.ssh/"${KEY_NAME}"
+    ssh-keygen -q -b 4096 -t "${KEY_TYPE}" -N "" -f ~/.ssh/"${KEY_NAME}"
     echo "DONE"
     if [[ -e ~/.ssh/"${KEY_NAME}".pub ]]; then
         if type xclip >/dev/null 2>&1; then
@@ -26,7 +27,7 @@ create_ssh_key() {
     fi
 }
 did() {
-    echo -e "[${2:-"---"}] $(timestamp) / ${1}\n" >> "$HOME"/did.txt ;
+    echo -e "[${2:-"---"}] $(timestamp) / ${1}\n" >> "${HOME}"/did.txt ;
 }
 dip() {
     if type docker >/dev/null 2>&1; then
