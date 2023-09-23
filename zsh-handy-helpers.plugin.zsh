@@ -43,7 +43,6 @@ dra() {
     fi
 }
 fix_ssh_key_permissions() {
-    prevent_root "$0"
     chmod 600 "${HOME}"/.ssh/config
 }
 fix_enospc_issue() {
