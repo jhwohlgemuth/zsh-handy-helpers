@@ -44,7 +44,7 @@ dra() {
     fi
 }
 fix_ssh_key_permissions() {
-    chmod 600 "${HOME}"/.ssh/config
+    chmod 600 "${HOME}"/.ssh/*
 }
 fix_enospc_issue() {
     echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p >/dev/null 2>&1
